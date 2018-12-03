@@ -39,7 +39,7 @@ function windowOrder()
         local westAtMin = pos.f.x == 0;
 
         if not eastPastHalf or westAtMin then
-            pos.f.x = 0 
+            pos.f.x = 0
             pos.f.w = pos.max.w / 2
         else
             pos.f.w = pos.f.x + pos.f.w
@@ -51,7 +51,7 @@ function windowOrder()
     end
 
     if area == "up" then
-      return function() 
+      return function()
         local pos = getPos();
         local bar = 23;
         local southPastHalf = pos.f.y + pos.f.h > pos.max.h / 2;
@@ -64,23 +64,23 @@ function windowOrder()
             pos.f.h = pos.f.h + pos.f.y - bar
             pos.f.y = bar
         end
-            
+
         pos.win:setFrame(pos.f)
       end
     end
 
     if area == "down" then
-      return function() 
+      return function()
         local pos = getPos();
         local bar = 23;
         local northPastHalf = pos.f.y > pos.max.h / 2;
         local southAtBottom = pos.f.y + pos.f.h + 10 > pos.max.h;
 
         if southAtBottom and not northPastHalf then
-            pos.f.y = pos.max.h / 2 + bar 
+            pos.f.y = pos.max.h / 2 + bar
             pos.f.h = pos.max.h / 2;
         else
-            pos.f.h = pos.max.h - pos.f.y + bar 
+            pos.f.h = pos.max.h - pos.f.y + bar
         end
 
         pos.win:setFrame(pos.f)
